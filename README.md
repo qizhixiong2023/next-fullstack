@@ -44,27 +44,37 @@ bun dev
 最终访问：
 
 ```bash
-http://localhost:3000/api/projects
+http://localhost:3000/users
 ```
 
 ## API
 
-- `GET /api/health`
-- `GET /api/projects`
-- `POST /api/projects`
-- `GET /api/projects/:id`
-- `PATCH /api/projects/:id`
-- `DELETE /api/projects/:id`
+- `GET /api/health` - 健康检查
+- `GET /api/users` - 获取用户列表
+- `POST /api/users` - 创建用户
+- `GET /api/users/:id` - 获取用户详情
+- `PATCH /api/users/:id` - 更新用户
+- `DELETE /api/users/:id` - 删除用户
 
 ## 项目结构
 
 ```txt
 src/
-  app/api/          API 路由处理
-  db/               Drizzle 客户端与数据库 schema
-  lib/              通用工具方法
-  modules/          业务模块
-drizzle/            Drizzle 生成的迁移文件
+  app/
+    (pages)/        前端页面
+    api/            API 路由处理
+  core/
+    config/         配置管理
+    middleware/     中间件
+    types/          全局类型
+    utils/          工具函数
+  db/
+    schemas/        数据库表定义
+    client.ts       数据库客户端
+    schema.ts       Schema 汇总
+    index.ts        统一导出
+  modules/          业务模块（按功能分层）
+drizzle/            数据库迁移文件
 ```
 
 ## 常用脚本

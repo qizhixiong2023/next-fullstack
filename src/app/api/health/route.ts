@@ -1,4 +1,4 @@
-import { ok } from "@/lib/api-response";
+import { ok } from "@/core/utils/response";
 
 export async function GET() {
   return ok({
